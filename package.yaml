@@ -1,0 +1,41 @@
+name: butler
+version: 0.0.0.0
+synopsis: Opinionated framework for Haskell APIs
+description: Please see README.md
+category: Web
+author: Matthew Parsons
+maintainer: parsonsmatt@gmail.com
+copyright: 2016 Matthew Parsons
+license: BSD3
+github: parsonsmatt/butler
+
+dependencies:
+- base >=4.7 && <5
+
+library:
+  source-dirs: src
+
+executables:
+  butler-exe:
+    main: Main.hs
+    source-dirs: app
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - butler
+
+tests:
+  butler-test:
+    main: Spec.hs
+    source-dirs: test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - base
+    - butler
+    - hspec
